@@ -16,9 +16,56 @@ $dark:                            #444 !default;
 
 $assertive:                       #ec008c;
 
+$bar-light-text:                  $assertive;
+
+$loading-text-color:              $assertive;
+$loading-bg-color:                rgba(255,255,255,0.7);
+$loading-padding:                 1em 0.5em;
+$loading-border-radius:           0.5em;
+$loading-font-size:               1.5em;
+
+$font-family-sans-serif:          "Lucida Grande", "Roboto", "Segoe UI", sans-serif !default;
+$font-family-light-sans-serif:    "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
+
+
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.spinner svg {
+  width: 100%; 
+  height: 100px !important;
+}
+
+.dashboard {
+  .scroll {
+    padding-top: 0.5em; 
+  }
+
+  .button-clear {
+    max-height: inherit !important;
+    margin: 0 !important; 
+    padding-bottom: 1em; 
+    
+    &:active {
+      color: $assertive; 
+      border-color: $assertive !important;
+    }
+
+    i { 
+      display: block;
+      line-height: 1;
+
+      &:before {
+        display: block; line-height: 1.3; font-size: 3em;
+      }
+    }
+  }
+
+  .row {
+    padding: 0;
+  }
+}

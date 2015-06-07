@@ -1,33 +1,96 @@
-angular.module('starter.services', [])
 
-.factory('collections', function($http, $q) {
+var base = 'http://www.localhost.com:8080';
+var hpapi = {}
 
-	var collections = {};
+hpapi.getUrlPinDetails = function(id){
+	if(id) {
+		return base + '/en/api/pin/get.json?id=' + id;
+	}else {
+		console.log('getUrlPinDetails missing Pin ID');
+	}
+}
 
-	collections.list = [];
+hpapi.getUrlProjectDetails = function(slug){
+	if(slug) {
+		return base + '/en/api/' + slug + '/projects/get.json';
+	}else {
+		console.log('getUrlProjectDetails missing slug');
+	}
+}
 
-	collections.get = function() {
-		return $http.get('www.localhost.com:8080/en/api/projects/listing.json?limit=24&page=1').
-		//return $http.get('http://v624-beta-1.historypin-hrd.appspot.com/en/api/projects/listing.json?limit=24&page=1').
-		//return $http.get('http://jsonplaceholder.typicode.com/posts').
-		then(function(response){
-			collections.list.push(response.data);
-			console.log(response.data);
+hpapi.getUrlProjectGallery = function(slug){
+	if(slug) {
+		return base + '/en/api/' + slug + '/pin/get_gallery.json';
+	}else {
+		console.log('getUrlProjectGallery missing slug');
+	}
+}
+
+angular.module('hp.services', [])
+
+//http://www.localhost.com:8080/en/api/pin/listing.json?limit=24&page=1
+//http://www.localhost.com:8080/en/api/pin/listing.json?limit=6&page=1&user=62461
+//http://www.localhost.com:8080/en/api/user/get.json?id=62461
+//http://www.localhost.com:8080/en/api/user/listing.json?limit=24&page=1
+//http://www.localhost.com:8080/en/api/projects/listing.json?limit=24&page=1
+//http://www.localhost.com:8080/en/api/hlf/oreo/pin/get_gallery.json
+//http://www.localhost.com:8080/en/api/hlf/oreo/projects/get.json
+
+.factory('projects', function($http, $q) {
+
+	var projects = {};
+
+	projects.list = [];
+	projects.details = {};
+
+	projects.getList = function() {
+		return $http.get('http://www.localhost.com:8080/en/api/projects/listing.json?limit=24&page=1').then(function(response){
+			projects.list = response.data.results;
 		});
 	}
-	
-	collections.ready = $q.all([
-		collections.get()
-	]);
 
-	return collections;
+	projects.getDetails = function(slug) {
+		return $http.get(hpapi.getUrlProjectDetails(slug)).then(function(response){
+			projects.details = response.data;
+		});
+	}
+
+	return projects;
+})
+
+.factory('pins', function($http, $q) {
+
+	var pins = {};
+
+	pins.list = [];
+	pins.details = {};
+
+	pins.getList = function() {
+		return $http.get('http://www.localhost.com:8080/en/api/projects/listing.json?limit=24&page=1').then(function(response){
+			pins.list = response.data.results;
+		});
+	}
+
+	pins.getDetails = function(slug) {
+		return $http.get(hpapi.getUrlPinDetails(slug)).then(function(response){
+			pins.details = response.data;
+		});
+	}
+
+	return pins;
+})
+
+.factory('gallery', function($http, $q) {
+
+	var gallery = {};
+
+	gallery.cards = [];
+
+	gallery.getCards = function(slug) {
+		return $http.get(hpapi.getUrlProjectGallery(slug)).then(function(response){
+			gallery.cards = response.data.results;
+		});
+	}
+
+	return gallery;
 });
-	//get: function(chatId) {
-	//for (var i = 0; i < chats.length; i++) {
-	//if (chats[i].id === parseInt(chatId)) {
-	//return chats[i];
-	//}
-	//}
-	//return null;
-	//}
-

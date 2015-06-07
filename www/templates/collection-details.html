@@ -1,0 +1,25 @@
+<ion-view view-title="Collection">
+	<ion-content>
+		<div class="item">
+			<h1>{{collection.title}}</h1>
+			<p>{{collection.organisation}}</p>
+			<p>{{collection.description}}</p>
+		</div>		
+
+		<ion-list>
+			<ion-item class="item item-avatar" ng-repeat="user in users">
+				<img ng-src="http://historypin.org{{user.image}}">
+				{{user.name}}
+			</ion-item>
+		</ion-list>
+
+		<ion-list>
+			<ion-item class="card item-thumbnail-left padding-vertical" ng-repeat="card in cards" ng-href="#/pin/{{card.id}}">
+				<img ng-src="http://historypin.org{{card.image}}">
+				<h2>{{card.caption}}</h2>
+				<p>{{card.desc}}</p>
+			</ion-item>
+		</ion-list>
+
+	</ion-content>
+</ion-view>

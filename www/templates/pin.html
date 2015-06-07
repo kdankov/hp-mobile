@@ -1,0 +1,48 @@
+<ion-view view-title="Pin Details">
+	<ion-content>
+		<div class="card padding pin-type-{{pin.type}}">
+			<h2>{{pin.caption}}</h2>
+			<p>{{pin.description}}</p>
+			<p>Date taken: {{pin.date_taken}}</p>
+
+			<span ng-if="pinDisplayClass == image-pin">
+				<img ng-src="http://historypin.org/{{pin.display.content}}" style="width: 100%; display: block; margin: 5% 0;">
+			</span>
+
+			<span ng-if="pinDisplayClass == oembed">
+				{{pin.display.content}}
+			</span>
+
+			<p><strong>Geo Tags:</strong><br> {{pin.geo_tags}}</p>
+			<p><strong>License:</strong><br> {{pin.license}}</p>
+			<p><strong>Share URL:</strong><br> {{pin.share_url}}</p>
+			<p><strong>Tags:</strong><br> <span ng-repeat="tag in tags">{{tag}}, </span></p>
+<!--
+ 			"user_id"			: 62398,
+			"user_image"		: "/channels/img/62398/logo/1/dim/160x160/crop/1/",
+			"user_name"			: "The Raleigh ...",
+			"user_url"			: "/channels/view/62398",
+ -->
+			
+		</div>
+	</ion-content>
+
+	<div class="tabs tabs-icon-left">
+		<span class="tab-item">
+			<i class="icon ion-heart"></i>
+			{{pin.times_favourited}}
+		</span>
+		<span class="tab-item">
+			<i class="icon ion-eye"></i>
+			{{pin.times_viewed}}
+		</span>
+		<span class="tab-item">
+			<i class="icon ion-chatbubbles"></i>
+			{{pin.count_comments}}
+		</span>
+		<a class="tab-item">
+			<i class="icon ion-share"></i>
+		</a>
+
+	</div>
+</ion-view>

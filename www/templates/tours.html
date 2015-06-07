@@ -1,0 +1,31 @@
+<ion-view view-title="Tours">
+<ion-content>
+<!--<ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>-->
+<ion-list>
+<ion-item class="list card" ng-repeat="tour in tours" type="item-text-wrap" href="#/collection/{{collection.id}}">
+
+<div class="item">
+<h2>{{tour.title}}</h2>
+<p>By {{tour.users[0].name}}</p>
+</div>
+
+<!--<div class="item item-image">-->
+<!--<img src="http://www.localhost.com:8080{{collection.images[0].url}}">-->
+<!--</div>-->
+
+<!--<div class="item item-avatar">-->
+<!--[><img src="avatar.jpg"><]-->
+<!--<p>Started by:</p>-->
+<!--<h2>{{collection.users[0].name}}</h2>-->
+<!--</div>-->
+
+<div class="item tabs tabs-secondary tabs-icon-left">
+<span class="tab-item"> <i class="icon ion-android-pin"></i> 132 Pins </span>
+<span class="tab-item"> <i class="icon ion-eye"></i> 132 Views </span>
+<span class="tab-item"> <i class="icon ion-chatbox"></i> 5 Comments </span>
+</div>
+
+</ion-item>
+</ion-list>
+</ion-content>
+</ion-view>

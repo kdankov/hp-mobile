@@ -1,0 +1,35 @@
+<!--
+This template loads for the 'tab.friend-detail' state (app.js)
+'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+The FriendsCtrl pulls data from the Friends service (service.js)
+The Friends service returns an array of friend data
+-->
+<ion-view view-title="User Profile">
+<ion-content>
+<ion-item class="card">
+
+<div class="item">
+<h2>{{collection.title}}</h2>
+<p>By Nine Inch Nails</p>
+</div>
+
+<!--<div class="item item-image">-->
+<!--<img src="http://www.localhost.com:8080{{collection.images[0].url}}">-->
+<!--</div>-->
+
+<!--<div class="item item-avatar">-->
+<!--[><img src="avatar.jpg"><]-->
+<!--<p>Started by:</p>-->
+<!--<h2>{{collection.users[0].name}}</h2>-->
+<!--</div>-->
+
+<div class="item tabs tabs-secondary tabs-icon-left">
+<span class="tab-item"> <i class="icon ion-android-pin"></i> 132 Pins </span>
+<span class="tab-item"> <i class="icon ion-eye"></i> 132 Views </span>
+<span class="tab-item"> <i class="icon ion-chatbox"></i> 5 Comments </span>
+</div>
+
+</ion-item>
+
+</ion-content>
+</ion-view>
