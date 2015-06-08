@@ -7685,8 +7685,7 @@ a.button {
   margin: 0 !important;
   padding-bottom: 1em; }
   .dashboard .button-clear:active {
-    color: #ec008c;
-    border-color: #ec008c !important; }
+    color: #ec008c; }
   .dashboard .button-clear i {
     display: block;
     line-height: 1; }
@@ -7696,3 +7695,26 @@ a.button {
       font-size: 3em; }
 .dashboard .row {
   padding: 0; }
+
+.pin-list .pin-item {
+  width: 50%;
+  height: 14em;
+  float: left;
+  border: none; }
+  .pin-list .pin-item:first-child, .pin-list .pin-item:nth-child(2) {
+    display: none; }
+  .pin-list .pin-item .item-content {
+    padding: 1em;
+    height: 100%;
+    display: block; }
+  .pin-list .pin-item .item-content > span {
+    display: block;
+    width: 100%;
+    height: 8em;
+    overflow: hidden;
+    margin-bottom: 1em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 5px #CCC; }
+  .pin-list .pin-item img {
+    display: block;
+    width: 100%; }

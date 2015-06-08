@@ -1,6 +1,6 @@
 {
   "name": "Historypin",
-  "app_id": "",
+  "app_id": "cebe11a4",
   "gulpStartupTasks": [
     "sass",
     "watch"

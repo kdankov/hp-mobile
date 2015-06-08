@@ -1,5 +1,6 @@
 
-var base = 'http://www.localhost.com:8080';
+// var base = 'http://www.localhost.com:8080';
+var base = 'http://v624-mobile.historypin-hrd.appspot.com';
 var hpapi = {}
 
 hpapi.getUrlPinDetails = function(id){
@@ -7,6 +8,14 @@ hpapi.getUrlPinDetails = function(id){
 		return base + '/en/api/pin/get.json?id=' + id;
 	}else {
 		console.log('getUrlPinDetails missing Pin ID');
+	}
+}
+
+hpapi.getUrlProjectListing = function(){
+	if(true) {
+		return base + '/en/api/projects/listing.json?limit=24&page=4&sort=-recent';
+	}else {
+		console.log('getUrlProjectListing missing slug');
 	}
 }
 
@@ -44,7 +53,7 @@ angular.module('hp.services', [])
 	projects.details = {};
 
 	projects.getList = function() {
-		return $http.get('http://www.localhost.com:8080/en/api/projects/listing.json?limit=24&page=1').then(function(response){
+		return $http.get(hpapi.getUrlProjectListing()).then(function(response){
 			projects.list = response.data.results;
 		});
 	}

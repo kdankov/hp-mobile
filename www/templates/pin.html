@@ -5,11 +5,11 @@
 			<p>{{pin.description}}</p>
 			<p>Date taken: {{pin.date_taken}}</p>
 
-			<span ng-if="pinDisplayClass == image-pin">
+			<span ng-if="pinDisplayClass == 'image-pin'">
 				<img ng-src="http://historypin.org/{{pin.display.content}}" style="width: 100%; display: block; margin: 5% 0;">
 			</span>
 
-			<span ng-if="pinDisplayClass == oembed">
+			<span ng-if="pinDisplayClass == 'oembed'">
 				{{pin.display.content}}
 			</span>
 
