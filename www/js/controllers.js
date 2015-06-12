@@ -4,8 +4,42 @@ angular.module('hp.controllers', [])
 
 })
 
-.controller('MapCtrl', function($scope) {
+.controller('MapCtrl', function($scope, $ionicLoading) {
 
+	$scope.mapCreated = function(map) {
+		$scope.map = map;
+	};
+
+	$scope.centerOnMe = function () {
+		// console.log("Centering");
+		if (!$scope.map) { return; }
+
+		$ionicLoading.show({ content: 'Getting current location...', });
+
+		navigator.geolocation.getCurrentPosition(function (pos) {
+			// console.log('Got pos', pos);
+			$scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+			$scope.map.setZoom(16);
+
+			new google.maps.Marker({
+				position: $scope.map.getCenter(),
+				icon: {
+					path: google.maps.SymbolPath.CIRCLE,
+					fillColor: '#00CC00',
+					fillOpacity: 0.8,
+					strokeColor: '#009900',
+					strokeOpacity: 0.1,
+					scale: 10
+				},
+				draggable: false,
+				map: $scope.map
+			});
+
+			$ionicLoading.hide();
+		}, function (error) {
+			alert('Unable to get location: ' + error.message);
+		});
+	};
 })
 
 .controller('PinCtrl', function($scope, $ionicLoading, $stateParams, pins) {
@@ -47,6 +81,7 @@ angular.module('hp.controllers', [])
 
 	gallery.getCards($stateParams.collectionSlug).then(function(){
 		$scope.cards = gallery.cards;
+		console.log($scope.cards);
 	});
 })
 

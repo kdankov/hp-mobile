@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('hp', ['ionic', 'hp.controllers', 'hp.services'])
+angular.module('hp', ['ionic', 'hp.controllers', 'hp.services', 'hp.directives'])
 
 .constant('$ionicLoadingConfig', {
   template: '<ion-spinner class="spinner-assertive" icon="ripple"></ion-spinner><br><br>Loading'

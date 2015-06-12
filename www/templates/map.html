@@ -1,5 +1,10 @@
-<ion-view view-title="Historypin Map">
-<ion-content class="padding">
-	<h3>Map</h3>
+<ion-view title="Historypin Map">
+<ion-header-bar class="bar-stable">
+<h1 class="title">Map</h1>
+</ion-header-bar>
+<ion-content scroll="false">
+	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+	<button id="locate-me" class="controls" type="button" value="test" ng-click="centerOnMe()"><i class="icon ion-navigate"></i></button>
+	<map on-create="mapCreated(map)"></map>
 </ion-content>
 </ion-view>

@@ -23,7 +23,7 @@ hpapi.getUrlProjectDetails = function(slug){
 	if(slug) {
 		return base + '/en/api/' + slug + '/projects/get.json';
 	}else {
-		console.log('getUrlProjectDetails missing slug');
+		console.error('Missing slug');
 	}
 }
 

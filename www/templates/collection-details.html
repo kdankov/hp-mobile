@@ -2,8 +2,8 @@
 	<ion-content>
 		<div class="item">
 			<h2>{{collection.title}}</h2>
-			<p>{{collection.organisation}}</p>
-			<p>{{collection.description}}</p>
+			<p>{{collection.organisation}}&nbsp;</p>
+			<p>{{collection.description}}&nbsp;</p>
 		</div>		
 
 		<ion-list>
@@ -15,9 +15,9 @@
 
 		<ion-list class="pin-list">
 			<ion-item class="pin-item" ng-repeat="card in cards" ng-href="#/pin/{{card.id}}">
-				<span><img ng-src="http://historypin.org{{card.image}}"></span>
-				<h2>{{card.caption}}</h2>
-				<p>{{card.desc}}</p>
+				<span><img ng-src="http://historypin.org{{card.image}}crop/1"></span>
+				<h2>{{card.caption}}&nbsp;</h2>
+				<p>{{card.desc}}&nbsp;</p>
 			</ion-item>
 		</ion-list>
 
