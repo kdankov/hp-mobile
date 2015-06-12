@@ -6,6 +6,19 @@ angular.module('hp.controllers', [])
 
 .controller('MapCtrl', function($scope, $ionicLoading) {
 
+	$scope.showSearch = function() {
+		console.log('aaa');
+		this.className += 'activated';
+		var searchbox = document.getElementById('pac-input');
+
+		if (searchbox.className.search("active") >= 0) {
+			searchbox.className = 'controls';
+		}
+		else {
+			searchbox.className += ' active';
+		}
+	}
+
 	$scope.mapCreated = function(map) {
 		$scope.map = map;
 	};
